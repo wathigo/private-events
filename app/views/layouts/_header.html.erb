@@ -1,0 +1,20 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "private events", root_path, class: "main-title text-white",
+        id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <% if signed_in? %>
+          <li class="welcome-user text-white">Welcome <%= current_user.name %></li>
+        <% end %>
+          <li><%= link_to "Home",   root_path %></li>
+        <% if signed_in? %>
+          <li><%= link_to "Log out", logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Register", signup_path %></li>
+          <li><%= link_to "Log in", login_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
