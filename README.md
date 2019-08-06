@@ -1,4 +1,4 @@
-# Re-former
+# private events
 
 This is part of the Association Project in The Odin Project’s Ruby on Rails Curriculum. Find it at [here](https://www.theodinproject.com/courses/ruby-on-rails/lessons/associations).
 
@@ -66,7 +66,7 @@ This is a collaborative project by us: [Simon Wathigo](https://github.com/wathig
 
 ## Contributing
 
-1. Fork it (https://github.com/wathigo/Eventbrite/fork)
+1. Fork it (https://github.com/wathigo/private-events/fork)
 2. Create your feature branch (git checkout -b feature/[choose-a-name])
 3. Commit your changes (git commit -am 'what this commit will fix/add')
 4. Push to the branch (git push origin feature/[chosen-name])
