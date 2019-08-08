@@ -2,7 +2,7 @@
 
 class User < ApplicationRecord
   before_create :generate_token
-
+  has_many :events, dependent: :destroy
   validates :name,    presence: true
   validates :email,   presence: true
 

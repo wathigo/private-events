@@ -17,3 +17,12 @@ User.create!(name: 'Example User',
   User.create!(name: name,
                email: email)
 end
+
+users = User.order(:created_at).take(6)
+50.times do
+  title = Faker::Lorem.sentence(3)
+  description = Faker::Lorem.sentence(5)
+  date = "05/05/2020"
+  location = "Medis's House"
+  users.each { |user| user.events.create!(title: title, description: description, date: date, location: location) }
+end

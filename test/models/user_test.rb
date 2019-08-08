@@ -20,4 +20,14 @@ class UserTest < ActiveSupport::TestCase
     @user.email = '     '
     assert_not @user.valid?
   end
+
+  test "associated events should be destroyed" do
+    @user.save
+    @user.events.create!(title: "Lorem ipsum",
+                             description: "Alias quos facilis laudantium in aut maiores magnam minus",
+                             date: "08/08/2020", location: "Jades Complex")
+    assert_difference 'Event.count', -1 do
+      @user.destroy
+    end
+  end
 end

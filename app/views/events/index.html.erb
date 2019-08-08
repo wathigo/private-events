@@ -1,0 +1,9 @@
+<div class="all-events">
+  <% if @events.any? %>
+    <h3>events (<%= @events.count %>)</h3>
+    <ol class="events">
+      <%= render @events %>
+    </ol>
+    <%= will_paginate @events %>
+  <% end %>
+</div>

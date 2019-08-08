@@ -5,7 +5,7 @@ This is part of the Association Project in The Odin Project’s Ruby on Rails Cu
 ## Function description
 
 1. Sign up
-   - after sign up, signed in status
+   - after sign up, signed in status.
 
 2. Log In
    - log in status remains while
