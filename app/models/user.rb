@@ -4,6 +4,13 @@ class User < ApplicationRecord
   has_many  :hosting_events, class_name: 'Event',
                              foreign_key: 'creator_id',
                              dependent: :destroy
+
+  has_many  :attendees,     class_name: 'Attendance',
+                            foreign_key: 'attendee_id',
+                            dependent: :destroy
+
+  has_many :attended_events, through:  :attendees, source: :attended_event
+
   validates :name,    presence: true
   validates :email,   presence: true
   before_create :generate_token

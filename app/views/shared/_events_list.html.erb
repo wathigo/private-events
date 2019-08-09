@@ -1,10 +1,20 @@
 
-<% if @events.any? %>
-  <h3>Events (<%= @events.count %>)</h3>
+<% if @upcoming_events.any? %>
+  <h3>Upcoming Events (<%= @upcoming_events.count %>)</h3>
   <ol class="hosting_events">
-    <% @events.each do |event| %>
+    <% @upcoming_events.each do |event| %>
       <%= render event %>
     <% end %>
   </ol>
-  <%= will_paginate @events %>
+  <%= will_paginate @upcoming_events %>
+<% end %>
+
+<% if @prev_events.any? %>
+  <h3>Upcoming Events (<%= @prev_events.count %>)</h3>
+  <ol class="hosting_events">
+    <% @prev_events.each do |event| %>
+      <%= render event %>
+    <% end %>
+  </ol>
+  <%= will_paginate @prev_events %>
 <% end %>

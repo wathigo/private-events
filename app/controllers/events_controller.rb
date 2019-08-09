@@ -13,7 +13,14 @@ class EventsController < ApplicationController
     end
   end
 
-  def destroy; end
+  def attend
+    @event.attendees << current_user
+  end
+
+  def show
+    @event = Event.find(params[:id])
+    @users = @event.attendees
+  end
 
   def index
     @event = Event.all

@@ -11,7 +11,7 @@
 User.create!(name: 'Example User',
              email: 'example@railstutorial.org')
 
-9.times do |n|
+50.times do |n|
   name = Faker::Name.name
   email = "example-#{n + 1}@railstutorial.org"
   User.create!(name: name,
@@ -32,12 +32,11 @@ users = User.order(:created_at).take(6)
                                 location: location)
   end
 end
-# users = User.order(:created_at).take(6)
-# 50.times do
-#   title = Faker::Lorem.sentence(3)
-#   description = Faker::Lorem.sentence(5)
-#   date = '05/05/2020'
-#   location = "Medis's House"
-#   users.each { |user| user.hosting_events.create!(title: title,
-#                  description: description, date: date, location: location) }
-# end
+users = User.order(:created_at).take(50)
+events = Event.order(:date).take(10)
+
+events.each do |event|
+  users.each do |user|
+    event.attendees << user
+  end
+end
