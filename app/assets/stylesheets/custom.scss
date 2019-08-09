@@ -2,7 +2,6 @@
 @import "bootstrap";
 
 $border-style: 0.5px solid #ccc;
-// $mid-gray-color: #999999;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -30,8 +29,11 @@ body {
 
 .text-white {
   color: white;
-  &:hover {
+  a {
     color: white;
+    &:hover {
+      color: white;
+    }
   }
 }
 
@@ -110,9 +112,7 @@ aside {
     }
   }
 }
-.events{
 
-}
 .event{
   width: 50vw;
   background-color: #afeeee;
@@ -125,4 +125,8 @@ aside {
 
 .event span{
   display: block;
+}
+
+.d-hidden {
+  display: hidden;
 }

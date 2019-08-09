@@ -1,11 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+event_0:
+  title: 'Discussion for social issues'
+  description: 'The cause of the issues, Pay for a drink only'
+  date: '2019-08-07'
+  location: 'Jack cafe'
+  creator: michael
 
-one:
-  title: MyString
-  date: 2019-08-07
-  location: MyString
-
-two:
-  title: MyString
-  date: 2019-08-07
-  location: MyString
+<% 1.upto(35) do |n| %>
+event_<%= n %>:
+  title: 'Discussion for social issues'
+  description: 'The cause of the issues, Pay for a drink only'
+  date: '2019-08-06'
+  location: 'Jack cafe'
+  creator: michael
+<% end %>

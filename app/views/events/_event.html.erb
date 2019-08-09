@@ -1,10 +1,22 @@
-<li class="event" id="event-<%= event.id %>">
-  <span class="user">Posted by:  <%= link_to event.user.name, event.user %></span>
-  <span class="title"><%= event.title.upcase %></span>
-  <span class="description"><%= event.description %></span>
-  <span class="location">Venue: <%= event.location %></span>
-  <span class="date">Date: <%= event.date %></span>
-  <span class="timestamp">
-    <small>Posted <%= time_ago_in_words(event.created_at) %> ago.</small>
-  </span>
-</li>
+<% if @event = event %>
+  <li class="event" id="event-<%= @event.id %>">
+    <span class="creator">
+      Created by: <%= link_to @event.creator.name, @event.creator %>
+    </span>
+    <span class="title">
+      Subject: <%= @event.title.upcase %>
+    </span>
+    <span class="description">
+      Description: <%= @event.description %>
+    </span>
+    <span class="location">
+      Venue: <%= @event.location %>
+    </span>
+    <span class="date">
+      Date: <%= @event.date %>
+    </span>
+    <span class="timestamp">
+      <small>Created <%= time_ago_in_words(@event.created_at) %> ago.</small>
+    </span>
+  </li>
+<% end %>

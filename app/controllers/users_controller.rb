@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       sign_in @user
       remember @user
       flash[:success] = 'Thank you for your sign up'
-      redirect_to root_path
+      redirect_to user_path(@user)
     else
       render :new
     end
@@ -19,7 +19,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @events = @user.events.paginate(page: params[:page])
+    @events = @user.hosting_events.paginate(page: params[:page])
+  end
+
+  def hosting_events
+    @user = current_user
+    @event = Event.find(params[:id])
+    @events = @user.hosting_events.paginate(page: params[:page])
   end
 
   private

@@ -1,0 +1,10 @@
+
+<% if @events.any? %>
+  <h3>Events (<%= @events.count %>)</h3>
+  <ol class="hosting_events">
+    <% @events.each do |event| %>
+      <%= render event %>
+    <% end %>
+  </ol>
+  <%= will_paginate @events %>
+<% end %>

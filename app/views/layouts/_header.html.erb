@@ -1,14 +1,17 @@
+<% @user ||= current_user %>
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "private events", root_path, class: "main-title text-white",
-        id: "logo" %>
-    <nav>
+    <div class="col-md-4">
+      <%= link_to "private events", root_path, class: "main-title text-white",
+          id: "logo" %>
+    </div>
+    <nav class="col-md-8">
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
-          <li class="welcome-user text-white">Welcome <%= current_user.name %></li>
-        <% end %>
-          <li><%= link_to "Home",   root_path %></li>
-        <% if signed_in? %>
+          <li class="text-white welcome-user">Welcome! <%= @user.name %></li>
+          <li><%= link_to "Hosted Events", user_path(@user) %></li>
+          <li><%= link_to "Create Event", new_event_path %></li>
+          <!-- <li><%#= link_to "Joined Events", user_path(@user) %></li> -->
           <li><%= link_to "Log out", logout_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "Register", signup_path %></li>
