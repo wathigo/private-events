@@ -114,13 +114,21 @@ aside {
 }
 
 .event{
-  width: 50vw;
-  background-color: #afeeee;
-  color: #000;
-  padding: 10px;
+  background-image: linear-gradient(to bottom right, #C805CF, #FF7C09);
+  color: #fff;
   border-radius: 10px;
   margin: 0 auto;
-  margin-bottom: 3vh;
+  margin-bottom: 20PX;
+  margin-right: 20PX;
+  flex: 45%;
+  position: relative;
+  padding: 20px;
+}
+
+.hosting_events{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
 
 .event span{
@@ -129,4 +137,26 @@ aside {
 
 .d-hidden {
   display: hidden;
+}
+
+.all-events{
+  background:
+    url('event.webp');
+  background-size: cover;
+  color: white;
+}
+
+.action-btn{
+  display: inline-block;
+  border-radius: 15px;
+  height: 30px;
+  width: 80px;
+  background-image: linear-gradient(to right, #FFD881, #fff);
+  color: #000;
+  text-align: center;
+  padding: 5px;
+  bottom: 0;
+  position: absolute;
+  bottom: 10px;
+  left: 200px;
 }

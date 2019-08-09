@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post '/login',      to: 'sessions#create'
   delete '/logout',   to: 'sessions#destroy'
   get 'events/:id/attend', to: 'events#attend', as: 'attend_event'
+  delete 'events/:id/cancel', to: 'events#leave', as: 'leave_event'
 
   resources :users do
     member do

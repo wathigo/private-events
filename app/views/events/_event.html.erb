@@ -18,5 +18,10 @@
     <span class="timestamp">
       <small>Created <%= time_ago_in_words(@event.created_at) %> ago.</small>
     </span>
+    <% if @event.attendees.find_by(id: current_user) %>
+      <%= link_to 'Attend', leave_event_path(event), method: :delete, class: "action-btn" %>
+      <% elsif !current_user.nil?%>
+        <%= link_to 'Cancel', attend_event_path(event), class: "action-btn" %>
+    <% end %>
   </li>
 <% end %>

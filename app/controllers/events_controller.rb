@@ -14,7 +14,15 @@ class EventsController < ApplicationController
   end
 
   def attend
+    @event = Event.find(params[:id])
     @event.attendees << current_user
+    redirect_to root_path
+  end
+
+  def leave
+    @event = Event.find(params[:id])
+    @event.attendees.delete(current_user)
+    redirect_to root_path
   end
 
   def show
@@ -23,7 +31,6 @@ class EventsController < ApplicationController
   end
 
   def index
-    @event = Event.all
     @events = Event.all.paginate(page: params[:page])
   end
 
