@@ -1,11 +1,11 @@
 <%= render @event %>
-  <table class="users-container">
-    <th> Attendees</th>
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= user.name %></td>
-      <td><%= user.email %></td>
-      <td><%= link_to 'Show', user %></td>
-    </tr>
-  <% end %>
-  <table>
+<table class="attendees">
+  <th> Attendees <%= @attendees.count %></th>
+<% @attendees.each do |attendee| %>
+  <tr>
+    <td><%= attendee.name %></td>
+    <td><%= attendee.email %></td>
+    <td><%= link_to 'See profile', attendee %></td>
+  </tr>
+<% end %>
+<table>

@@ -28,8 +28,8 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', logout_path, count: 0
     # After sign up, it is login status
     assert_difference 'User.count', 1 do
-      post users_path, params: { user: { name: 'Example User',
-                                         email: 'user@example.com' } }
+      post signup_path, params: { user: { name: 'Example User',
+                                          email: 'user@example.com' } }
     end
     user = assigns(:user)
     assert_redirected_to user_path(user)
@@ -37,5 +37,14 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', signup_path, count: 0
     assert_select 'a[href=?]', login_path, count: 0
     assert_select 'a[href=?]', logout_path, count: 1
+  end
+
+  test 'should connect for create event' do
+    log_in_as @michael
+    get root_path
+    assert_select 'nav a[href=?]', events_path
+    assert_select '.main a[href=?]', events_path
+    get user_path @michael
+    assert_select '.main a[href=?]', events_path
   end
 end

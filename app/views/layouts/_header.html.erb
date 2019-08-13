@@ -1,4 +1,4 @@
-<% @user ||= current_user %>
+<% @user = current_user %>
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <div class="col-md-4">
@@ -7,11 +7,11 @@
     </div>
     <nav class="col-md-8">
       <ul class="nav navbar-nav navbar-right">
-        <% if signed_in? %>
-          <li class="text-white welcome-user">Welcome! <%= @user.name %></li>
-          <li><%= link_to "Hosted Events", user_path(@user) %></li>
-          <li><%= link_to "Create Event", new_event_path %></li>
-          <!-- <li><%#= link_to "Joined Events", user_path(@user) %></li> -->
+        <% if logged_in? %>
+          <li class="text-white welcome-user">
+            <%= link_to "Welcome! #{@user.name}", user_path(@user), class: "d-inline text-white" %>
+          </li>
+          <li><%= link_to "Create Event", events_path %></li>
           <li><%= link_to "Log out", logout_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "Register", signup_path %></li>

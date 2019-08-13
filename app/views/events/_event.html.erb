@@ -1,27 +1,28 @@
-<% if @event = event %>
-  <li class="event" id="event-<%= @event.id %>">
-    <span class="creator">
-      Created by: <%= link_to @event.creator.name, @event.creator %>
-    </span>
-    <span class="title">
-      Subject: <%= @event.title.upcase %>
-    </span>
-    <span class="description">
-      Description: <%= @event.description %>
-    </span>
-    <span class="location">
-      Venue: <%= @event.location %>
-    </span>
-    <span class="date">
-      Date: <%= @event.date %>
-    </span>
-    <span class="timestamp">
-      <small>Created <%= time_ago_in_words(@event.created_at) %> ago.</small>
-    </span>
-    <% if @event.attendees.find_by(id: current_user) %>
-      <%= link_to 'Attend', leave_event_path(event), method: :delete, class: "action-btn" %>
-      <% elsif !current_user.nil?%>
-        <%= link_to 'Cancel', attend_event_path(event), class: "action-btn" %>
+<% @event = event %>
+<% if @event %>
+  <li class="event card" id="event-<%= @event.id %>">
+    <div class="card-body">
+      <span class="creator a-white">
+        Created by: <%= @event.creator.name %>
+      </span>
+      <span class="title">
+        Subject: <%= @event.title.upcase %>
+      </span>
+      <span class="description">
+        Description: <%= @event.description %>
+      </span>
+      <span class="location">
+        Venue: <%= @event.location %>
+      </span>
+      <span class="date">
+        Date: <%= @event.date %>
+      </span>
+      <span class="timestamp">
+        <small>Created <%= time_ago_in_words(@event.created_at) %> ago.</small>
+      </span>
+    <div>
+    <%= link_to event_path(@event), class: "card-overlay", data: { confirm: "Move to : #{@event.title}?" } do %>
+      <%= render 'shared/stats', event: @event %>
     <% end %>
   </li>
 <% end %>

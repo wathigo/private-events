@@ -6,10 +6,10 @@ class EventTest < ActiveSupport::TestCase
   def setup
     @user = users(:michael)
     @event = @user.hosting_events.build(title: 'Poetry night',
-                                       description: 'Enjoy beautiful night
+                                        description: 'Enjoy beautiful night
                                                      with reading poetries',
-                                       date: '2020-05-05',
-                                       location: 'Oak caffe terrace')
+                                        date: '2020-05-05',
+                                        location: 'Oak caffe terrace')
   end
 
   test 'should be valid' do

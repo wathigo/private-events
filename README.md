@@ -1,26 +1,28 @@
-# private events
+# Private Events
 
 This is part of the Association Project in The Odin Project’s Ruby on Rails Curriculum. Find it at [here](https://www.theodinproject.com/courses/ruby-on-rails/lessons/associations).
 
 ## Function description
 
-1. Sign up
-   - after sign up, signed in status.
+1. User
+   - Sign up / Log in / Log out
+      * User can sign up with name, email
+      * User can log in with email
+   - Without log out, reopen browser, log in status remain
 
-2. Log In
-   - log in status remains while
-      * user moves page to page
-      * without logout, user close browser and open it again
+2. Event
+   - Create : Log in user can create a new event
+   - Delete : Event creator can delete the event
+   - Attend : Users can attend/leave event
+   - main view : In the root path
+      * User can see any Upcoming event, Past event
+   - Each event view : When user clicked an event
+      * User can see event attendees
 
-3. Log Out
-   - becomes log out status
-
-4. Post List
-   - the author’s name can be displayed only if a user is signed in.
-
-5. Post Write
-   - log in status : move to "post write" screen
-   - log out status : move to "log in" screen
+3. Event option access for log in user
+   - Create event
+   - User created upcoming / past event list
+   - User attended upcoming / past event list
 
 ## Technology
 

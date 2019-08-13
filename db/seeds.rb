@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database
 # with its default values.
 # The data can then be loaded with the rails db:seed command
@@ -11,20 +13,20 @@
 User.create!(name: 'Example User',
              email: 'example@railstutorial.org')
 
-50.times do |n|
-  name = Faker::Name.name
+10.times do |n|
+  name = Faker::Name.unique.name
   email = "example-#{n + 1}@railstutorial.org"
   User.create!(name: name,
                email: email)
 end
+Faker::Name.unique.clear
 
-users = User.order(:created_at).take(6)
-50.times do |i|
-  users.each do |user|
+users = User.order(:created_at).take(5)
+users.each do |user|
+  15.times do |_i|
     title = Faker::Book.title
     description = Faker::TvShows::TheITCrowd.quote
-    # date = Date.today + i.days
-    date = Faker::Date.between(from: -100.days.ago, to: Date.today + 100.days)
+    date = Faker::Date.between(from: 30.days.ago, to: Date.today + 30.days)
     location = Faker::Address.full_address
     user.hosting_events.create!(title: title,
                                 description: description,
@@ -32,11 +34,9 @@ users = User.order(:created_at).take(6)
                                 location: location)
   end
 end
-users = User.order(:created_at).take(50)
-events = Event.order(:date).take(10)
 
-events.each do |event|
-  users.each do |user|
-    event.attendees << user
-  end
-end
+# Attendees
+users = User.all
+event = users[0].hosting_events.first
+attendees = users[1..-1]
+attendees.each { |attendee| attendee.attend(event) }

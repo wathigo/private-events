@@ -19,14 +19,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @upcoming_events = @user.hosting_events.where("date > ?", DateTime.now).all.paginate(page: params[:page])
-    @prev_events = @user.hosting_events.where("date < ?", DateTime.now).all.paginate(page: params[:page])
-  end
-
-  def hosting_events
-    @user = current_user
-    @event = Event.find(params[:id])
-    @events = @user.hosting_events.paginate(page: params[:page])
+    @hosting_events = @user.hosting_events.paginate(page: params[:page],
+                                                    per_page: per_page)
+    @attended_events = @user.attended_events.paginate(page: params[:page],
+                                                      per_page: per_page)
   end
 
   private

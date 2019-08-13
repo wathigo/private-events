@@ -1,16 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-event_0:
-  title: 'Discussion for social issues'
-  description: 'The cause of the issues, Pay for a drink only'
-  date: '2019-08-07'
-  location: 'Jack cafe'
+michael:
+  title: Faker::Book.title
+  description: Faker::TvShows::TheITCrowd.quote
+  date: time_rand
+  location: Faker::Address.full_address
   creator: michael
 
-<% 1.upto(35) do |n| %>
-event_<%= n %>:
-  title: 'Discussion for social issues'
-  description: 'The cause of the issues, Pay for a drink only'
-  date: '2019-08-06'
-  location: 'Jack cafe'
-  creator: michael
-<% end %>
+archer:
+  title: Faker::Book.title
+  description: Faker::TvShows::TheITCrowd.quote
+  date: time_rand
+  location: Faker::Address.full_address
+  creator: archer

@@ -1,7 +1,6 @@
-
+<% @events = events %>
 <% if @events.any? %>
-  <h3>Upcoming Events (<%= @events.count %>)</h3>
-  <ol class="hosting_events">
+  <ol class="events">
     <% @events.each do |event| %>
       <%= render event %>
     <% end %>

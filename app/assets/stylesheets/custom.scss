@@ -9,12 +9,46 @@ $border-style: 0.5px solid #ccc;
   box-sizing:         border-box;
 }
 
+header a {
+  color: white;
+  &:hover {
+    color: white;
+  }
+}
+
+.a-white {
+  a {
+    color: white;
+  }
+}
+
+.a-black {
+  a {
+    color: black;
+  }
+}
+
+.d-inline {
+  display: inline-block;
+}
+
+.card {
+  position: relative;
+  .card-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+}
+
 h1{
   text-align: center;
 }
 
 body {
-  margin-top: 10rem;
+  margin-top: 7rem;
 }
 
 .main-title {
@@ -23,8 +57,10 @@ body {
   height: 5rem;
 }
 
-.welcome-user {
-  padding: 15px;
+.navbar-inverse .navbar-nav > .welcome-user {
+  a {
+    color: white;
+  }
 }
 
 .text-white {
@@ -42,8 +78,8 @@ body {
 }
 
 .my-3 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
 }
 
 
@@ -87,63 +123,35 @@ input {
 
 /* sidebar */
 
-aside {
-  section.user_info {
-    margin-top: 20px;
-  }
-  section {
-    padding: 10px 0;
-    margin-top: 20px;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-    }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
-    }
-  }
-}
-
 .event{
   background-image: linear-gradient(to bottom right, #C805CF, #FF7C09);
-  color: #fff;
   border-radius: 10px;
-  margin: 0 auto;
-  margin-bottom: 20PX;
-  margin-right: 20PX;
+  margin: 10px;
   flex: 45%;
-  position: relative;
   padding: 20px;
+  span{
+    color: white;
+    display: block;
+  }
 }
 
-.hosting_events{
+.events{
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-}
-
-.event span{
-  display: block;
+  margin-left: -10px;
+  margin-right: -10px;
+  background:
+    url('event.webp');
+  background-size: cover;
 }
 
 .d-hidden {
   display: hidden;
 }
 
-.all-events{
-  background:
-    url('event.webp');
-  background-size: cover;
-  color: white;
+.word-break {
+  word-wrap: break-word;
 }
 
 .action-btn{
