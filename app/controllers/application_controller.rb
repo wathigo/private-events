@@ -2,12 +2,18 @@
 
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
-
-  include ApplicationHelper
-  include AttendancesHelper
-  include EventsHelper
   include SessionsHelper
-  include UsersHelper
+  
+  def per_page
+    6
+  end
 
-  helper_method :logged_in?
+  # Confirms a logged-in user
+  def logged_in_user
+    return if logged_in?
+
+    store_location
+    flash[:danger] = 'Please log in'
+    redirect_to login_url
+  end
 end

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Event < ApplicationRecord
-  # default_scope { order(date: :asc) }
   scope :past_events, lambda {
                         where('date < ?', DateTime.current)
                           .order(date: :desc)
@@ -11,8 +10,7 @@ class Event < ApplicationRecord
                               .order(date: :asc)
                           }
 
-  belongs_to :creator,       class_name: 'User' # ,
-  # foreign_key: 'creator_id'
+  belongs_to :creator,       class_name: 'User'
 
   has_many  :attendances,    class_name: 'Attendance',
                              foreign_key: 'attended_event_id',
